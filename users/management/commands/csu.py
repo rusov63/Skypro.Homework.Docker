@@ -9,7 +9,7 @@ EMAIL_USER = os.getenv('EMAIL_USER'), # укажите почту для вхо�
 class Command(BaseCommand):
     def handle(self, *args, **options):
         user = User.objects.create(
-            email= EMAIL_USER,
+            email=EMAIL_USER,
             first_name='Admin',
             last_name='SuperUser',
             is_staff=True,

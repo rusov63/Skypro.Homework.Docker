@@ -13,11 +13,11 @@ router = DefaultRouter()
 router.register(r'courses', CourseViewSet, basename='courses')
 
 urlpatterns = [
-    path('courses/create/', LessonCreateAPIView.as_view(), name='lesson_create'), # Создание
-    path('courses/', LessonListAPIView.as_view(), name='lesson_list'), #
-    path('courses/<int:pk>/', LessonRetrieveAPIView.as_view(), name='lesson_retrieve'), # один урок
-    path('courses/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='lesson_update'), # изменение
-    path('courses/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='lesson_destroy'), # удаление
+    path('lessons/create/', LessonCreateAPIView.as_view(), name='lesson_create'), # Создание
+    path('lessons/', LessonListAPIView.as_view(), name='lesson_list'), #
+    path('lessons/<int:pk>/', LessonRetrieveAPIView.as_view(), name='lesson_retrieve'), # один урок
+    path('lessons/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='lesson_update'), # изменение
+    path('lessons/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='lesson_destroy'), # удаление
 ] + router.urls
 
 #print(router.urls)
