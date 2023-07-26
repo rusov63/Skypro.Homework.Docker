@@ -2,7 +2,6 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from main.apps import MainConfig
-from main.models import Lesson
 from main.views.course import CourseViewSet
 from main.views.lesson import LessonCreateAPIView, LessonListAPIView, LessonRetrieveAPIView, LessonUpdateAPIView,\
 LessonDestroyAPIView
@@ -19,5 +18,7 @@ urlpatterns = [
     path('lessons/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='lesson_update'), # изменение
     path('lessons/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='lesson_destroy'), # удаление
 ] + router.urls
+
+
 
 #print(router.urls)

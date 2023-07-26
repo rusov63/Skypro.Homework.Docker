@@ -1,9 +1,10 @@
 from django.core.management import BaseCommand
 from users.models import User
+from dotenv import load_dotenv
 import os
 
 
-PASSWORD = os.getenv('PASS_SQL') # введите пароль
+EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD') # введите пароль
 EMAIL_USER = os.getenv('EMAIL_USER'), # укажите почту для входа в админ панель
 
 class Command(BaseCommand):
@@ -16,5 +17,5 @@ class Command(BaseCommand):
             is_superuser=True
         )
 
-        user.set_password(PASSWORD)
+        user.set_password(EMAIL_PASSWORD)
         user.save()
