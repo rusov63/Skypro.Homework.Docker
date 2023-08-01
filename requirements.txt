@@ -3,3 +3,5 @@ djangorestframework
 Pillow
 psycopg
 pytz
+django-filter
+
