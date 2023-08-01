@@ -13,26 +13,30 @@ class CourseSerializer(serializers.ModelSerializer):
         "description": "Основы backend-разработки",
         "lessons": [
             {
+                "id": 4,
+                "name": "Django",
+                "description": "Основы веба",
+                "course": "Профессия Python разработчик 3.0",
+                "user": null
+            },
+            {
                 "id": 1,
                 "name": "Введение в программирование",
+                "description": "Введение в профессию и основы алгоритмизации",
                 "course": "Профессия Python разработчик 3.0",
                 "user": null
             },
             {
                 "id": 2,
                 "name": "Основы синтаксиса",
+                "description": "Оператор if. Переменная типа bool. Операторы сравнения",
                 "course": "Профессия Python разработчик 3.0",
                 "user": null
             },
             {
                 "id": 3,
                 "name": "Списки и циклы",
-                "course": "Профессия Python разработчик 3.0",
-                "user": null
-            },
-            {
-                "id": 4,
-                "name": "Строки и словари",
+                "description": "Цикл for. Совмещаем цикл и условие",
                 "course": "Профессия Python разработчик 3.0",
                 "user": null
             }
@@ -40,4 +44,3 @@ class CourseSerializer(serializers.ModelSerializer):
         "lessons_count": 4
     }
 ]
-
