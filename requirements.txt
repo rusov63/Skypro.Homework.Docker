@@ -4,4 +4,4 @@ Pillow
 psycopg
 pytz
 django-filter
-
+djangorestframework-simplejwt

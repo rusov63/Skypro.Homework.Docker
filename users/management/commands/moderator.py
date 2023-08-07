@@ -2,18 +2,17 @@ from django.core.management import BaseCommand
 from users.models import User
 import os
 
-
-PASSWORD = os.getenv('PASSWORD')
+# Создание модератора с флагом. if_staff = True
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
         user = User.objects.create(
-            email=os.getenv('EMAIL_USER'),
-            first_name='Admin',
-            last_name='SuperUser',
+            email='moderator@mail.ru',
+            name='moderator',
             is_staff=True,
-            is_superuser=True
+            is_superuser=False
+
         )
 
-        user.set_password(PASSWORD)
+        user.set_password('123456')
         user.save()

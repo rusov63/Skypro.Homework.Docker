@@ -1,8 +1,10 @@
 from rest_framework import viewsets, mixins
 from rest_framework.mixins import ListModelMixin
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 
 from main.models import Course
+from main.permissions import IsModerator, IsOwner
 from main.seriallizers.course import CourseSerializer
 
 
@@ -18,4 +20,5 @@ class CourseViewSet(viewsets.mixins.CreateModelMixin,
     """Представление курса, которое включает в себя механизм CRUD"""
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
+    permission_classes = [IsModerator | IsOwner]
 
