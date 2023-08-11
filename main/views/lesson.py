@@ -3,12 +3,15 @@ from rest_framework import filters
 from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView, UpdateAPIView, DestroyAPIView
 
 from main.models import Lesson
+from main.paginators import MainPaginator
 from main.seriallizers.lesson import LessonSerializer
 from main.permissions import IsOwner, IsModerator
 
 
 class LessonCreateAPIView(CreateAPIView):
-    """Создание урока"""
+    """
+    Создание урока
+    """
     serializer_class = LessonSerializer
     permission_classes = [IsOwner]
 
@@ -20,17 +23,22 @@ class LessonCreateAPIView(CreateAPIView):
 
 
 class LessonRetrieveAPIView(RetrieveAPIView):
-    """Просмотр одного урока"""
+    """
+    Просмотр одного урока
+    """
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
     permission_classes = [IsModerator | IsOwner]
 
 
 class LessonListAPIView(ListAPIView):
-    """Просмотр всех уроков"""
+    """
+    Просмотр всех уроков
+    """
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
     permission_classes = [IsModerator | IsOwner]
+    pagination_class = MainPaginator
 
     # фильтр поиска урока
     filter_backends = [filters.SearchFilter]
@@ -39,13 +47,17 @@ class LessonListAPIView(ListAPIView):
 
 
 class LessonUpdateAPIView(UpdateAPIView):
-    """Создание урока"""
+    """
+    Редактирование урока
+    """
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
     permission_classes = [IsModerator | IsOwner]
 
 
 class LessonDestroyAPIView(DestroyAPIView):
-    """Удаление урока"""
+    """
+    Удаление урока
+    """
     queryset = Lesson.objects.all()
     permission_classes = [IsOwner]

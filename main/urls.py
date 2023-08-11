@@ -7,6 +7,7 @@ from main.views.lesson import LessonCreateAPIView, LessonListAPIView, LessonRetr
 LessonDestroyAPIView
 from main.views.payment import PaymentCreateAPIView, PaymentListAPIView, PaymentRetrieveAPIView, PaymentUpdateAPIView, \
 PaymentDeleteAPIView
+from main.views.subscription import *
 
 app_name = MainConfig.name
 
@@ -15,8 +16,8 @@ router.register(r'courses', CourseViewSet, basename='courses')
 
 urlpatterns = [
     path('lessons/create/', LessonCreateAPIView.as_view(), name='lesson_create'), # Создание
-    path('lessons/', LessonListAPIView.as_view(), name='lesson_list'), #
-    path('lessons/<int:pk>/', LessonRetrieveAPIView.as_view(), name='lesson_retrieve'), # один урок
+    path('lessons/', LessonListAPIView.as_view(), name='lesson_list'), # просмотр всех уроков
+    path('lessons/<int:pk>/', LessonRetrieveAPIView.as_view(), name='lesson_retrieve'), # просмотр одного урока
     path('lessons/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='lesson_update'), # изменение
     path('lessons/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='lesson_destroy'), # удаление
 
@@ -26,6 +27,12 @@ urlpatterns = [
     path('payments/<int:pk>/', PaymentRetrieveAPIView.as_view(), name='payment_retrieve'),
     path('payments/update/<int:pk>/', PaymentUpdateAPIView.as_view(), name='payment_update'),
     path('payments/delete/<int:pk>/', PaymentDeleteAPIView.as_view(), name='payment_delete'),
+
+    # Subscription
+    path('subscriptions/create/', SubscriptionCreateAPIView.as_view(), name='subscription_create'),
+    path('subscriptions/', SubscriptionListAPIView.as_view(), name='subscription_list'),
+    path('subscriptions/<int:pk>/', SubscriptionRetrieveAPIView.as_view(), name='subscription_retrieve'),
+    path('subscriptions/delete/<int:pk>/', SubscriptionDeleteAPIView.as_view(), name='subscription_delete')
 ] + router.urls
 
 
