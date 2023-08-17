@@ -44,7 +44,7 @@ class Lesson(models.Model):
 
 class Payment(models.Model):
     """
-    Модель описывающий - Платеж
+    Модель для способа оплаты курса или урока
     """
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Пользователь', **NULLABLE)
     date_payment = models.DateField(auto_now_add=True, verbose_name='Дата оплаты')
@@ -52,6 +52,10 @@ class Payment(models.Model):
     payment_amount = models.IntegerField(verbose_name='сумма оплаты')
     payment_method = models.CharField(verbose_name='способ оплаты', **NULLABLE) # наличные или перевод на счет.
     is_paid = models.BooleanField(default=False, verbose_name='Оплачено')
+
+    id_intent = models.CharField(max_length=300, verbose_name='id_намерение платежа', **NULLABLE)
+    id_method = models.CharField(max_length=300, verbose_name='id_метод платежа', **NULLABLE)
+    status = models.CharField(max_length=50, verbose_name='статус платежа', **NULLABLE)
 
     def __str__(self):
         return f'{self.user} {self.date_payment} {self.paid_course} {self.payment_amount}'

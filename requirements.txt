@@ -5,3 +5,5 @@ psycopg
 pytz
 django-filter
 djangorestframework-simplejwt
+drf-yasg
+requests

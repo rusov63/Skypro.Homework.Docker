@@ -57,3 +57,17 @@ ________________________________________________________________________________
 
 #### 3. Созданы права доступа для пользователей которые могут видеть и редактировать только свои уроки.
         - main/permissions.py/IsOwner
+
+_____________________________________________________________________________________________________________________
+
+## 26.1 Документирование и безопасность
+### (ветка 26.1_HW_Документирование_и_безопасность)
+
+### Реализовано в проекте:
+
+#### 1. Настроен вывод документации проетка с помощью swagger.
+        - http://127.0.0.1:8000/docs/
+
+#### 2. Подключена система оплаты курса через request. Выводится ссылка на оплату товара.
+        - https://stripe.com/docs/api.
+        - https://checkout.stripe.com/c/pay/cs_test_a1yC2Piv7z0iLcQzupFecqpuz0VNSw2r2j0HHSiSCml7O0WiLo7HYdrPYl#fidkdWxOYHwnPyd1blpxYHZxWjA0S2NgQ2tGND1AMGhVYmxAV00zYzFGd01OUE5BRj1kZlB2Zms3bmpcQWpEdnR3MWNRVENmQnRhYUNPRHZMQGtKcG00ZkZDMXZQMmpTTGt9M0R9c0hRfENONTU1QFR8MndTMicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
