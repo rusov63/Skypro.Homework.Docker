@@ -7,3 +7,7 @@ django-filter
 djangorestframework-simplejwt
 drf-yasg
 requests
+celery
+django_celery_beat
+eventlet
+redis
