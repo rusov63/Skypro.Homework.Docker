@@ -71,3 +71,38 @@ ________________________________________________________________________________
 #### 2. Подключена система оплаты курса через request. Выводится ссылка на оплату товара.
         - https://stripe.com/docs/api.
         - https://checkout.stripe.com/c/pay/cs_test_a1yC2Piv7z0iLcQzupFecqpuz0VNSw2r2j0HHSiSCml7O0WiLo7HYdrPYl#fidkdWxOYHwnPyd1blpxYHZxWjA0S2NgQ2tGND1AMGhVYmxAV00zYzFGd01OUE5BRj1kZlB2Zms3bmpcQWpEdnR3MWNRVENmQnRhYUNPRHZMQGtKcG00ZkZDMXZQMmpTTGt9M0R9c0hRfENONTU1QFR8MndTMicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+
+______________________________________________________________________________________________________________________
+
+## 26.2. Celery
+### (ветка 26.2_HW_Celery)
+
+### Реализовано в проекте:
+
+#### 1. Настроен проект для работы с Celery, и celery-beat для выполнения последующих задач.
+        - config/settings.py
+        - config/celery.py
+        - config/__init__.py
+
+#### 2.  Добавлена асинхронная рассылка писем пользователям об обновлении материалов курса.
+        - main/tasks.py
+
+#### 3. С помощью celery-beat реализована фоновая задача, которая будет проверять пользователей 
+#### по дате последнего входа по полю last_login и, если пользователь не заходил более месяца, блокировать его с помощью флага is_active.
+        - main/tasks.py
+    
+    Команда для Windows:
+    - при указании обработчика событий необходимо добавить флаг -P eventlet
+    - celery -A config worker -l INFO -P eventlet
+    - celery -A my_project beat —loglevel=info
+
+    Redis официально не поддерживается в Windows: 
+    - Установите WSL2, Ubuntu. Подробности смотрите тут https://redis.io/docs/getting-started/installation/install-redis-on-windows/
+    - sudo apt-get update (обновление)
+    - sudo service redis-server start
+    - redis-cli
+    - Проверка работает ли сервер Redis: введите Ping, ответ от сервера: Pong
+    - в IDE через командну строку установите redis: pip install redis
+
+        Команда для Unix:
+    - redis-cli
