@@ -11,3 +11,5 @@ celery
 django_celery_beat
 eventlet
 redis
+stripe
+psycopg2-binary

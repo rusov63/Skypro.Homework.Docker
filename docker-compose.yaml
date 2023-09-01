@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword     # hubdocker/postgres
+      PGDATA: /var/lib/postgresql/data/pgdata # hubdocker/postgres
+
+  app:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - '8000:8000'
+    depends_on:
+      - database # указываем название приложения БД
